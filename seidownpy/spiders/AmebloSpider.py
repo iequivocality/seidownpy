@@ -2,11 +2,10 @@ from seidownpy.items import AmebloItem
 
 import datetime
 import scrapy
-import logging
-
-URL_SYNTAX = 'http://ameblo.jp/%s/page-%s.html'
+import os
 
 class AmebloSpider(scrapy.Spider):
+	URL_SYNTAX = 'http://ameblo.jp/%s/page-%s.html'
 	name = "ameblo"
 	start_urls = ["http://ameblo.jp/"]
 
@@ -19,26 +18,37 @@ class AmebloSpider(scrapy.Spider):
 		super(AmebloSpider, self).__init__(*args, **kwargs)
 		self.start_urls = ['http//ameblo.jp/%s/' % name]
 		self.main_name = name
-		self.first = int(first)
-		self.last = int(last)
+		self.page_urls = self._create_urls(first, last)
 
-		if self.first < 0 or self.last < 0:
+	def _create_urls(self, first=0, last=1):
+		if not first.isdigit() or not last.isdigit():
 			raise ValueError("Page number must be a positive digit")
 
+		first_int = int(first)
+		last_int = int(last)
+
+		if first_int < 0 or last_int < 0:
+			raise ValueError("Page number must be a positive digit")
+
+		urls = []
+		step = self._get_step(first_int, last_int)
+		for page_number in range(first_int, last_int + 1, step):
+			urls.append(self.URL_SYNTAX % (self.main_name, page_number))
+		return urls
+
+	def _get_step(self, first_int, last_int):
+		if first_int >= last_int:
+			return -1
+		else:
+			return 1
+
 	def start_requests(self):
-		for page_number in range(self.first, self.last + 1):
-			url = URL_SYNTAX % (self.main_name, page_number)
+		for url in self.page_urls:
 			yield scrapy.Request(url, callback=self.parse)
 
 	def parse(self, response):
 		url = response.css("div#main").xpath("//article[@data-unique-ameba-id='%s']" % self.main_name)
 		for u in url.xpath("//a/img"):
 			imageURL = u.xpath("@src").extract_first()
-			yield AmebloItem(item_id='', file_urls=[imageURL])
-
-	def parse_image(self, response):
-		print ""
-		# imageURL = img.extract_first()
-		# print imageURL
-		# yield AmebloItem(item_id='', file_urls=[imageURL])
-		yield None
+			imageID = os.path.basename(imageURL).split("?")[0]
+			yield AmebloItem(item_id=imageID, file_urls=[imageURL])
