@@ -20,7 +20,6 @@ Built-on top of Scrapy, a Python based web scrapping framework.
 * Changing file store for scrapy.
     - Go to *settings.py*
     - Change the FILES_STORE at the bottom of the file to the desired value.
-Go to settings.py
 
 ##Ameblo
 scrapy crawl **ameblo** -a **first**=*first page* -a **last**=*last_page* -a **name**=*blog* -o *output file*
