@@ -4,7 +4,11 @@ An application that will download images from selected seiyuu website.
 Built-on top of Scrapy, a Python based web scrapping framework.
 
 **Support**
-* ameblo
+* [ameblo](http://ameblo.jp)
+
+**Future Support**
+* Other sites such as [lineblog](http://lineblog.me) and stand-alone pages.
+* Trivial face-detection
 
 **Requirements**
 * scrapy
@@ -28,10 +32,7 @@ scrapy crawl **ameblo** -a **first**=*first page* -a **last**=*last_page* -a **n
 
 Reference
 -------------
-* Scraping images with Python and Scrapy
-http://www.pyimagesearch.com/2015/10/12/scraping-images-with-python-and-scrapy/
-* Spiders
-https://doc.scrapy.org/en/latest/topics/spiders.html
-* Downloading and processing files and images
-https://doc.scrapy.org/en/latest/topics/media-pipeline.html
+* [Scraping images with Python and Scrapy] (http://www.pyimagesearch.com/2015/10/12/scraping-images-with-python-and-scrapy/)
+* [Spiders] (https://doc.scrapy.org/en/latest/topics/spiders.html)
+* [Downloading and processing files and images] (https://doc.scrapy.org/en/latest/topics/media-pipeline.html)
 
