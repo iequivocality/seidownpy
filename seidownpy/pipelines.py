@@ -7,8 +7,10 @@
 import scrapy
 from scrapy.pipelines.images import FilesPipeline
 
-class AmebloImagePipeline(FilesPipeline):
+class SeidownImagePipeline(FilesPipeline):
     def get_media_requests(self, item, info):
         for file_url in item['file_urls']:
-        	new_file_url = file_url.split("?")[0]
+        	new_file_url = file_url
+        	if "?" in file_url:
+        		new_file_url = file_url.split("?")[0]
         	yield scrapy.Request(new_file_url)

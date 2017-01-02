@@ -1,20 +1,19 @@
-from seidownpy.items import AmebloItem
+from seidownpy.items import LineBlogItem
 
 import datetime
 import scrapy
 import os
 
-class AmebloSpider(scrapy.Spider):
-	URL_SYNTAX = 'http://ameblo.jp/%s/page-%s.html'
-	name = "ameblo"
-	start_urls = ["http://ameblo.jp/"]
+class LineBlogSpider(scrapy.Spider):
+	URL_SYNTAX = 'http://lineblog.me/%s/?p=%s'
+	name = "lineblog"
 
-	def __init__(self, name='', first=0, last=1, *args, **kwargs):
+	def __init__(self, name='', first='0', last='1', *args, **kwargs):
 		if not first.isdigit() or not last.isdigit():
 			raise ValueError("Page number must be a positive digit")
 
-		super(AmebloSpider, self).__init__(*args, **kwargs)
-		self.start_urls = ['http://ameblo.jp/%s/' % name]
+		super(LineBlogSpider, self).__init__(*args, **kwargs)
+		self.start_urls = ['http://lineblog.me/%s' % name]
 		self.main_name = name
 		self.page_urls = self._create_urls(first, last)
 
@@ -30,7 +29,7 @@ class AmebloSpider(scrapy.Spider):
 
 		urls = []
 		step = self._get_step(first_int, last_int)
-		urls.append('http://ameblo.jp/%s/' % self.main_name)
+		urls.append('http://lineblog.me/%s' % self.main_name)
 		for page_number in range(first_int, last_int + 1, step):
 			urls.append(self.URL_SYNTAX % (self.main_name, page_number))
 		return urls
@@ -46,8 +45,14 @@ class AmebloSpider(scrapy.Spider):
 			yield scrapy.Request(url, callback=self.parse)
 
 	def parse(self, response):
-		url = response.css("div#main").xpath("//article[@data-unique-ameba-id='%s'] | //div[@data-unique-ameba-id='%s']" % (self.main_name, self.main_name))
-		for u in url.xpath("//a/img"):
-			imageURL = u.xpath("@src").extract_first()
-			imageID = os.path.basename(imageURL).split("?")[0]
-			yield AmebloItem(item_id=imageID, file_urls=[imageURL])
+		articles = response.css("div#main article.article")
+		for article in articles:
+			print article
+			yield parse_articles(article)
+
+	def parse(self, article):
+		article_link = article.css("div.article_body")
+		for image in article_link.xpath("img"):
+			imageURL = image.xpath("@src")
+			yield imageURL
+
