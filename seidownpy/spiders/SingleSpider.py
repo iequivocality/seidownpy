@@ -1,8 +1,6 @@
 from seidownpy.items import SingleItem
 
-import datetime
 import scrapy
-import os
 
 class SingleSpider(scrapy.Spider):
 	name = "single"

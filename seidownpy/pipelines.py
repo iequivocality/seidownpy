@@ -10,6 +10,8 @@ from scrapy.pipelines.images import FilesPipeline
 class SeidownImagePipeline(FilesPipeline):
     def get_media_requests(self, item, info):
         for file_url in item['file_urls']:
+        	if file_url is None:
+        		continue
         	new_file_url = file_url
         	if "?" in file_url:
         		new_file_url = file_url.split("?")[0]

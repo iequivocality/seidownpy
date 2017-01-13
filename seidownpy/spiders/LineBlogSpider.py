@@ -45,14 +45,12 @@ class LineBlogSpider(scrapy.Spider):
 			yield scrapy.Request(url, callback=self.parse)
 
 	def parse(self, response):
-		articles = response.css("div#main article.article")
+		articles = response.css("div#main article.article div.article-body")
 		for article in articles:
-			print article
-			yield parse_articles(article)
+			yield self.parse_articles(article)
 
-	def parse(self, article):
-		article_link = article.css("div.article_body")
-		for image in article_link.xpath("img"):
-			imageURL = image.xpath("@src")
-			yield imageURL
+	def parse_articles(self, article):
+		for image in article.css("img"):
+			imageURL = image.xpath("@src").extract_first()
+			yield LineBlogItem(item_source=self.main_name, file_urls=[imageURL])
 

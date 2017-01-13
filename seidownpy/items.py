@@ -17,5 +17,12 @@ class SingleItem(scrapy.Item):
 	files = scrapy.Field()
 
 class LineBlogItem(scrapy.Item):
+	item_source = scrapy.Field();
+	file_urls = scrapy.Field()
+	files = scrapy.Field()
+
+class TumblrItem(scrapy.Item):
+	item_id = scrapy.Field()
+	item_source = scrapy.Field()
 	file_urls = scrapy.Field()
 	files = scrapy.Field()

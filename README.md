@@ -5,6 +5,8 @@ Built-on top of Scrapy, a Python based web scrapping framework.
 
 **Support**
 * [ameblo](http://ameblo.jp)
+* [tumblr](https://tumblr.com)
+* [lineblog](http://lineblog.me/)
 * [Other links]
 
 **Future Support**
@@ -22,9 +24,6 @@ Built-on top of Scrapy, a Python based web scrapping framework.
     - Go to *settings.py*
     - Change the FILES_STORE at the bottom of the file to the desired value.
 
-##Other Links
-scrapy crawl **single** -a **link**=*url*
-
 ##Ameblo
 scrapy crawl **ameblo** -a **first**=*first page* -a **last**=*last_page* -a **name**=*blog* -o *output file*
 
@@ -34,7 +33,28 @@ scrapy crawl **ameblo** -a **first**=*first page* -a **last**=*last_page* -a **n
 * last (*optional*) - last page where images are fetched
 * o (*optional*) - output file where logs are kept
 
-Reference
+##Tumblr
+scrapy crawl **tumblr** -a **first**=*first page* -a **last**=*last_page* -a **name**=*blog* -o *output file*
+
+* ameblo (*required*) - images will be fetched from http://ameblo.jp
+* name (*required*) - name of the blog where images will be fetched from
+* first (*optional*) - first page where images are fetched
+* last (*optional*) - last page where images are fetched
+* o (*optional*) - output file where logs are kept
+
+##Lineblog
+scrapy crawl **lineblog** -a **first**=*first page* -a **last**=*last_page* -a **name**=*blog* -o *output file*
+
+* ameblo (*required*) - images will be fetched from http://ameblo.jp
+* name (*required*) - name of the blog where images will be fetched from
+* first (*optional*) - first page where images are fetched
+* last (*optional*) - last page where images are fetched
+* o (*optional*) - output file where logs are kept
+
+##Other Links
+scrapy crawl **single** -a **link**=*url*
+
+##Reference
 -------------
 * [Scraping images with Python and Scrapy] (http://www.pyimagesearch.com/2015/10/12/scraping-images-with-python-and-scrapy/)
 * [Spiders] (https://doc.scrapy.org/en/latest/topics/spiders.html)
