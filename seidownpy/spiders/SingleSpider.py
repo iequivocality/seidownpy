@@ -13,5 +13,5 @@ class SingleSpider(scrapy.Spider):
 		imgs = response.xpath("//img")
 		for img in imgs:
 			imageURL = img.xpath("@src").extract_first()
-			yield SingleItem(file_urls=[imageURL])
+			yield SingleItem(image_urls=[imageURL])
 

@@ -7,6 +7,7 @@ Built-on top of Scrapy, a Python based web scrapping framework.
 * [ameblo](http://ameblo.jp)
 * [tumblr](https://tumblr.com)
 * [lineblog](http://lineblog.me/)
+* [single] - any link
 * [Other links]
 
 **Future Support**

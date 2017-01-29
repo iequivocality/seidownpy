@@ -50,4 +50,4 @@ class AmebloSpider(scrapy.Spider):
 		for u in url.xpath("//a/img"):
 			imageURL = u.xpath("@src").extract_first()
 			imageID = os.path.basename(imageURL).split("?")[0]
-			yield AmebloItem(item_id=imageID, file_urls=[imageURL])
+			yield AmebloItem(item_id=imageID, image_urls=[imageURL])

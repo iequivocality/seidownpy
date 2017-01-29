@@ -9,20 +9,20 @@ import scrapy
 
 class AmebloItem(scrapy.Item):
 	item_id = scrapy.Field()
-	file_urls = scrapy.Field()
-	files = scrapy.Field()
+	image_urls = scrapy.Field()
+	images = scrapy.Field()
 
 class SingleItem(scrapy.Item):
-	file_urls = scrapy.Field()
-	files = scrapy.Field()
+	image_urls = scrapy.Field()
+	images = scrapy.Field()
 
 class LineBlogItem(scrapy.Item):
 	item_source = scrapy.Field();
-	file_urls = scrapy.Field()
-	files = scrapy.Field()
+	image_urls = scrapy.Field()
+	images = scrapy.Field()
 
 class TumblrItem(scrapy.Item):
 	item_id = scrapy.Field()
 	item_source = scrapy.Field()
-	file_urls = scrapy.Field()
-	files = scrapy.Field()
+	image_urls = scrapy.Field()
+	images = scrapy.Field()

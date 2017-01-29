@@ -53,7 +53,7 @@ class TumblrSpider(scrapy.Spider):
 		post_contents = response.css("div.post-type-photo div.post-content")
 		for post_content in post_contents:
 			highres = post_content.css("a.high-res").xpath("@href").extract_first()
-			yield TumblrItem(item_id='', item_source=self.main_name, file_urls=[highres])
+			yield TumblrItem(item_id='', item_source=self.main_name, image_urls=[highres])
 
 	def _parse_photoset_type(self, response):
 		post_contents = response.css("div.post-type-photoset div.post-content")
@@ -71,4 +71,4 @@ class TumblrSpider(scrapy.Spider):
 	def _extract_items_from_photoset_photos(photoset_photos):
 		for photoset_photo in photoset_photos:
 			photoset_photo_url = photoset_photo.xpath("@href").extract_first()
-			yield TumblrItem(item_id='', item_source=self.main_name, file_urls=[photoset_photo_url])
+			yield TumblrItem(item_id='', item_source=self.main_name, image_urls=[photoset_photo_url])

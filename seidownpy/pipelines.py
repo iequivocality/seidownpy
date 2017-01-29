@@ -5,11 +5,11 @@
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 import scrapy
-from scrapy.pipelines.images import FilesPipeline
+from scrapy.pipelines.images import ImagesPipeline
 
-class SeidownImagePipeline(FilesPipeline):
+class SeidownImagePipeline(ImagesPipeline):
     def get_media_requests(self, item, info):
-        for file_url in item['file_urls']:
+        for file_url in item['image_urls']:
         	if file_url is None:
         		continue
         	new_file_url = file_url
