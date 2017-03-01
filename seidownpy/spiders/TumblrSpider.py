@@ -66,9 +66,10 @@ class TumblrSpider(scrapy.Spider):
 		photoset_rows = response.css("div.photoset div.photoset_row")
 		for photoset_row in photoset_rows:
 			photoset_photos = photoset_row.css("a.photoset_photo")
+			print photoset_photos
 			yield self._extract_items_from_photoset_photos(photoset_photos)
 
-	def _extract_items_from_photoset_photos(photoset_photos):
+	def _extract_items_from_photoset_photos(self, photoset_photos):
 		for photoset_photo in photoset_photos:
 			photoset_photo_url = photoset_photo.xpath("@href").extract_first()
 			yield TumblrItem(item_id='', item_source=self.main_name, image_urls=[photoset_photo_url])
