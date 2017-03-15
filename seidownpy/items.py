@@ -26,3 +26,8 @@ class TumblrItem(scrapy.Item):
 	item_source = scrapy.Field()
 	image_urls = scrapy.Field()
 	images = scrapy.Field()
+
+class InstagramItem(scrapy.Item):
+	item_source = scrapy.Field()
+	image_urls = scrapy.Field()
+	images = scrapy.Field() 
