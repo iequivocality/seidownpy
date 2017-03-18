@@ -34,6 +34,8 @@ scrapy crawl **ameblo** -a name=*name* -a entry=*entrynumber*
 * entrynumber (*required*) - entry number which can be extracted from links
 *Example:* http://ameblo.jp/someblog/entry-*entrynumber*.html
 
+./ameblo.sh **name** **entrynumber**
+
 **Bulk**
 scrapy crawl **ameblo** -a **first**=*first page* -a **last**=*last_page* -a **name**=*blog* -o *output file*
 
@@ -42,6 +44,8 @@ scrapy crawl **ameblo** -a **first**=*first page* -a **last**=*last_page* -a **n
 * first (*optional*) - first page where images are fetched
 * last (*optional*) - last page where images are fetched
 * o (*optional*) - output file where logs are kept
+
+./ameblo.sh **name** **first** **last**
 
 ##Tumblr
 scrapy crawl **tumblr** -a **first**=*first page* -a **last**=*last_page* -a **name**=*blog* -o *output file*
