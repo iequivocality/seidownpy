@@ -11,7 +11,6 @@ Built-on top of Scrapy, a Python based web scrapping framework.
 * [Other links]
 
 **Future Support**
-* Other sites such as [lineblog](http://lineblog.me) and stand-alone pages.
 * Trivial face-detection
 
 **Requirements**
@@ -24,8 +23,18 @@ Built-on top of Scrapy, a Python based web scrapping framework.
 * Changing file store for scrapy.
     - Go to *settings.py*
     - Change the FILES_STORE at the bottom of the file to the desired value.
+* Reference for custom settings can be found here.
+    - https://doc.scrapy.org/en/latest/topics/settings.html#project-settings-module
 
 ##Ameblo
+**Per entry**
+scrapy crawl **ameblo** -a name=*name* -a entry=*entrynumber*
+* ameblo (*required*) - images will be fetched from http://ameblo.jp
+* name (*required*) - name of the blog where images will be fetched from
+* entrynumber (*required*) - entry number which can be extracted from links
+*Example:* http://ameblo.jp/someblog/entry-*entrynumber*.html
+
+**Bulk**
 scrapy crawl **ameblo** -a **first**=*first page* -a **last**=*last_page* -a **name**=*blog* -o *output file*
 
 * ameblo (*required*) - images will be fetched from http://ameblo.jp
@@ -43,6 +52,8 @@ scrapy crawl **tumblr** -a **first**=*first page* -a **last**=*last_page* -a **n
 * last (*optional*) - last page where images are fetched
 * o (*optional*) - output file where logs are kept
 
+./tumblr.sh **name** **first** **last**
+
 ##Lineblog
 scrapy crawl **lineblog** -a **first**=*first page* -a **last**=*last_page* -a **name**=*blog* -o *output file*
 
@@ -52,8 +63,13 @@ scrapy crawl **lineblog** -a **first**=*first page* -a **last**=*last_page* -a *
 * last (*optional*) - last page where images are fetched
 * o (*optional*) - output file where logs are kept
 
+./lineblog.sh **name** **first** **last**
+
 ##Other Links
 scrapy crawl **single** -a **link**=*url*
+
+##Shortcuts
+Scripts are added under the script folder which are basically shortcuts to the syntax, without the need for typing arguments yourself.
 
 ##Reference
 -------------
