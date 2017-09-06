@@ -88,4 +88,4 @@ ITEM_PIPELINES = {
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
-IMAGES_STORE = "/Users/marionejrs/Development/Weeb Projects/seidownpy/output/"
+IMAGES_STORE = "output/"

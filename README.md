@@ -1,6 +1,6 @@
-SeidownPy
+SeidownPy v0.5
 =============
-An application that will download images from selected seiyuu website.
+An application that will download images from any link or any of the supported websites.
 Built-on top of Scrapy, a Python based web scrapping framework.
 
 **Support**
@@ -26,7 +26,7 @@ Built-on top of Scrapy, a Python based web scrapping framework.
 * Reference for custom settings can be found here.
     - https://doc.scrapy.org/en/latest/topics/settings.html#project-settings-module
 
-##Ameblo
+##Ameblo##
 **Per entry**
 scrapy crawl **ameblo** -a name=*name* -a entry=*entrynumber*
 * ameblo (*required*) - images will be fetched from http://ameblo.jp
@@ -47,7 +47,7 @@ scrapy crawl **ameblo** -a **first**=*first page* -a **last**=*last_page* -a **n
 
 ./ameblo.sh **name** **first** **last**
 
-##Tumblr
+**Tumblr**
 scrapy crawl **tumblr** -a **first**=*first page* -a **last**=*last_page* -a **name**=*blog* -o *output file*
 
 * ameblo (*required*) - images will be fetched from http://ameblo.jp
@@ -58,7 +58,7 @@ scrapy crawl **tumblr** -a **first**=*first page* -a **last**=*last_page* -a **n
 
 ./tumblr.sh **name** **first** **last**
 
-##Lineblog
+**Lineblog**
 scrapy crawl **lineblog** -a **first**=*first page* -a **last**=*last_page* -a **name**=*blog* -o *output file*
 
 * ameblo (*required*) - images will be fetched from http://ameblo.jp
@@ -69,15 +69,18 @@ scrapy crawl **lineblog** -a **first**=*first page* -a **last**=*last_page* -a *
 
 ./lineblog.sh **name** **first** **last**
 
-##Other Links
+**Other Links**
 scrapy crawl **single** -a **link**=*url*
 
-##Shortcuts
+**Shortcuts**
 Scripts are added under the script folder which are basically shortcuts to the syntax, without the need for typing arguments yourself.
 
-##Reference
+**Reference**
 -------------
 * [Scraping images with Python and Scrapy] (http://www.pyimagesearch.com/2015/10/12/scraping-images-with-python-and-scrapy/)
 * [Spiders] (https://doc.scrapy.org/en/latest/topics/spiders.html)
 * [Downloading and processing files and images] (https://doc.scrapy.org/en/latest/topics/media-pipeline.html)
 
+**Version History**
+
+To be added.

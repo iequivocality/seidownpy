@@ -1,0 +1,14 @@
+cd ..
+echo "[INFO] Starting Instagram crawler"
+if [ "$#" -eq 2 ]
+	then 
+		scrapy crawl instagram -a name="$1" -a entry="$2" -s ROBOTSTXT_OBEY=0
+elif [ "$#" -eq 1 ] 
+	then
+		scrapy crawl instagram -a name="$1" -s ROBOTSTXT_OBEY=0
+else
+	echo "[ERROR] Invalid number of arguments."
+	echo "[ERROR] Closing script."
+fi
+
+cd scripts/

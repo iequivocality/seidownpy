@@ -1,11 +1,12 @@
 cd ..
-echo "[INFO] Starting Instagram crawler"
+echo "[INFO] Starting Single crawler"
 if [ "$#" -ne 1 ]
 	then 
 		echo "[ERROR] Invalid number of arguments."
 		echo "[ERROR] Closing script."
 else
-	scrapy crawl instagram -a name="$1"
+	scrapy crawl single -a link="$1"
 fi
+mv "output/full" "output/$1"
 
 cd scripts/

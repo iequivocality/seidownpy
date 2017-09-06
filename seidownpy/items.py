@@ -12,6 +12,11 @@ class AmebloItem(scrapy.Item):
 	image_urls = scrapy.Field()
 	images = scrapy.Field()
 
+class KeyakiItem(scrapy.Item):
+	item_id = scrapy.Field()
+	image_urls = scrapy.Field()
+	images = scrapy.Field()
+
 class SingleItem(scrapy.Item):
 	image_urls = scrapy.Field()
 	images = scrapy.Field()

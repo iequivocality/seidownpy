@@ -10,5 +10,6 @@ else
 	echo "[ERROR] Invalid number of arguments."
 	echo "[ERROR] Closing script."
 fi
+mv "output/full" "output/$1"
 
 cd scripts/

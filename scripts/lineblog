@@ -8,4 +8,6 @@ else
 	scrapy crawl lineblog -a name="$1" -a first="$2" -a last="$3" 
 fi
 
+mv "output/full" "output/$1"
+
 cd scripts/
