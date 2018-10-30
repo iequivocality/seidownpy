@@ -19,6 +19,12 @@ Built-on top of Scrapy, a Python based web scrapping framework.
 
 *Both can installed via pip*
 
+**Installation**
+**Mac OS X**
+1. Open Terminal
+2. Run the following command: python
+3. Install virtualenv through pip (pip install virtualenv). This is in order to prevent affecting the built-in Python executable.
+
 **Customization**
 * Changing file store for scrapy.
     - Go to *settings.py*
@@ -26,7 +32,7 @@ Built-on top of Scrapy, a Python based web scrapping framework.
 * Reference for custom settings can be found here.
     - https://doc.scrapy.org/en/latest/topics/settings.html#project-settings-module
 
-##Ameblo##
+**Ameblo**
 **Per entry**
 scrapy crawl **ameblo** -a name=*name* -a entry=*entrynumber*
 * ameblo (*required*) - images will be fetched from http://ameblo.jp
@@ -37,7 +43,7 @@ scrapy crawl **ameblo** -a name=*name* -a entry=*entrynumber*
 ./ameblo.sh **name** **entrynumber**
 
 **Bulk**
-scrapy crawl **ameblo** -a **first**=*first page* -a **last**=*last_page* -a **name**=*blog* -o *output file*
+* scrapy crawl **ameblo** -a **first**=*first page* -a **last**=*last_page* -a **name**=*blog* -o *output file*
 
 * ameblo (*required*) - images will be fetched from http://ameblo.jp
 * name (*required*) - name of the blog where images will be fetched from
@@ -48,7 +54,7 @@ scrapy crawl **ameblo** -a **first**=*first page* -a **last**=*last_page* -a **n
 ./ameblo.sh **name** **first** **last**
 
 **Tumblr**
-scrapy crawl **tumblr** -a **first**=*first page* -a **last**=*last_page* -a **name**=*blog* -o *output file*
+* scrapy crawl **tumblr** -a **first**=*first page* -a **last**=*last_page* -a **name**=*blog* -o *output file*
 
 * ameblo (*required*) - images will be fetched from http://ameblo.jp
 * name (*required*) - name of the blog where images will be fetched from
@@ -59,7 +65,7 @@ scrapy crawl **tumblr** -a **first**=*first page* -a **last**=*last_page* -a **n
 ./tumblr.sh **name** **first** **last**
 
 **Lineblog**
-scrapy crawl **lineblog** -a **first**=*first page* -a **last**=*last_page* -a **name**=*blog* -o *output file*
+* scrapy crawl **lineblog** -a **first**=*first page* -a **last**=*last_page* -a **name**=*blog* -o *output file*
 
 * ameblo (*required*) - images will be fetched from http://ameblo.jp
 * name (*required*) - name of the blog where images will be fetched from
@@ -70,7 +76,7 @@ scrapy crawl **lineblog** -a **first**=*first page* -a **last**=*last_page* -a *
 ./lineblog.sh **name** **first** **last**
 
 **Other Links**
-scrapy crawl **single** -a **link**=*url*
+* scrapy crawl **single** -a **link**=*url*
 
 **Shortcuts**
 Scripts are added under the script folder which are basically shortcuts to the syntax, without the need for typing arguments yourself.
